@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "PORT=8001 nodemon server.js",
-    "start:production": "PORT=8000 nodemon server.js",
-    "test": "jest"
+    "start:dev": "NODE_ENV=dev nodemon server.js",
+    "start:prod": "NODE_ENV=prod nodemon server.js",
+    "test": "NODE_ENV=dev jest"
   },
   "author": "",
   "license": "ISC",

@@ -15,7 +15,7 @@ async function main() {
     console.log('Connected To DataBase');
 }
 
-const port = process.env.PORT || 8001;
+const port = process.env.NODE_ENV === 'dev' ? 8001 : 8000;
 let appServer = app.listen(port, () => {
     console.log(`Server running on PORT ${port}.`);
 })
