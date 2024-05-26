@@ -1,7 +1,7 @@
 const User = require('./models/userModel')
 /**
  * @swagger
- * /users:
+ * /api/v1/users:
  *   get:
  *     summary: Retrieve a list of users
  *     responses:
@@ -36,14 +36,14 @@ const User = require('./models/userModel')
  *         email: Sincere@april.biz
  *         phoneNumber: 9012345678
  */
-app.get('/users', async (req, res) => {
+app.get('/api/v1/users', async (req, res) => {
     const users = await User.find();
     res.send(users);
 });
 
 /**
  * @swagger
- * /users:
+ * /api/v1/users:
  *   post:
  *     summary: Create a new user
  *     requestBody:
@@ -60,7 +60,7 @@ app.get('/users', async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/User'
  */
-app.post('/users', async (req, res) => {
+app.post('/api/v1/users', async (req, res) => {
     const newUser = new User(req.body);
     const savedUser = await newUser.save();
     res.send(savedUser);
@@ -68,7 +68,7 @@ app.post('/users', async (req, res) => {
 
 /**
  * @swagger
- * /users/{id}:
+ * /api/v1/users/{id}:
  *   get:
  *     summary: Retrieve a specific user
  *     parameters:
@@ -86,14 +86,14 @@ app.post('/users', async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/User'
  */
-app.get('/users/:id', async (req, res) => {
+app.get('/api/v1/users/:id', async (req, res) => {
     const user = await User.findById(req.params.id);
     res.send(user);
 });
 
 /**
  * @swagger
- * /users/{id}:
+ * /api/v1/users/{id}:
  *   patch:
  *     summary: Update a specific user
  *     parameters:
@@ -117,7 +117,7 @@ app.get('/users/:id', async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/User'
  */
-app.patch('/users/:id', async (req, res) => {
+app.patch('/api/v1/users/:id', async (req, res) => {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.send(user);
 });
@@ -125,7 +125,7 @@ app.patch('/users/:id', async (req, res) => {
 
 /**
  * @swagger
- * /users/{id}:
+ * /api/v1/users/{id}:
  *   delete:
  *     summary: Delete a specific user
  *     parameters:
@@ -143,7 +143,7 @@ app.patch('/users/:id', async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/User'
  */
-app.delete('/users/:id', async (req, res) => {
+app.delete('/api/v1/users/:id', async (req, res) => {
     const user = await User.findByIdAndDelete(req.params.id);
     res.send(user);
 });
