@@ -2,11 +2,11 @@ const User = require('../models/userModel')
 
 exports.createUser = async (req, res, next) => {
     try {
-        const { name, email, phoneNumber } = req.body
+
         const user = await User.create({
-            name,
-            email,
-            phoneNumber
+            name: req.body.name,
+            email: req.body.email,
+            phoneNumber: req.body.phoneNumber
         })
         res.status(201).json({
             status: "success",
@@ -39,6 +39,7 @@ exports.getAllUser = async (req, res, next) => {
 exports.getUserById = async (req, res, next) => {
     try {
         const userId = req.params.userId
+
         const user = await User.findById(userId);
 
         res.status(200).json({
