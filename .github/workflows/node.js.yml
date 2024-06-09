@@ -29,4 +29,4 @@ jobs:
           touch config.env 
           echo "${{ secrets.PROD_ENV_FILE}}" > config.env
       - run: npm test
-      - run: NODE_ENV=prod pm2 restart backendAPI
+      # - run: NODE_ENV=prod pm2 restart backendAPI
