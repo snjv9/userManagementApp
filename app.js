@@ -8,6 +8,7 @@ app.use(express.json({
     limit: '10kb'
 }))
 
+//Swagger options 
 const swaggerOptions = {
     definition: {
         openapi: '3.0.0',
