@@ -22,10 +22,7 @@ const swaggerOptions = {
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api/v1/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
 app.use(morgan('dev'));
-
-
 app.use('/api/v1/users', userRouter)
 
 module.exports = app;
